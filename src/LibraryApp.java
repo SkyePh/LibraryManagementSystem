@@ -290,11 +290,41 @@ public class LibraryApp {
 
         panel.setLayout(null);
 
-        //TODO make the panel
-
         JLabel titleUser = new JLabel("Successfully Logged in");
         titleUser.setBounds(10, 20, 150, 25);
         panel.add(titleUser);
+
+        JLabel titleLabel = new JLabel("Book Title");
+        titleLabel.setBounds(10, 50, 80, 25);
+        panel.add(titleLabel);
+
+        JTextField titleText = new JTextField(20);
+        titleText.setBounds(70, 20, 180, 25);
+        panel.add(titleText);
+
+        JButton searchButton = new JButton("Search Book");
+        searchButton.setBounds(10, 90, 150, 25);
+        panel.add(searchButton);
+
+        JButton logoutButton = new JButton("Logout");
+        logoutButton.setBounds(10, 130, 150, 25);
+        panel.add(logoutButton);
+
+        logoutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                welcomeScreen(panel);
+            }
+        });
+
+        searchButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String title = titleText.getText();
+
+                bookManager.searchByTitle(title);
+            }
+        });
 
         panel.revalidate(); // Revalidate the panel
         panel.repaint(); // Repaint the panel to show new components

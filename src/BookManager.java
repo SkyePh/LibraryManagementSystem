@@ -37,7 +37,13 @@ public class BookManager {
                 foundBooks.add(book); //add found books in the new found books array
             }
         }
-        return foundBooks; //return the books that match the title
+        if (!foundBooks.isEmpty()) {
+            System.out.println("BooksFound");
+        }
+        else {
+            System.out.println("Book Not Found: " + title);
+        }
+        return foundBooks;
     }
 
     //search by author
@@ -47,6 +53,12 @@ public class BookManager {
             if (book.getAuthor().toLowerCase().contains(author.toLowerCase())) {
                 foundBooks.add(book);
             }
+        }
+        if (!foundBooks.isEmpty()) {
+            System.out.println("BooksFound");
+        }
+        else {
+            System.out.println("Book Not Found: " + author);
         }
         return foundBooks;
     }
@@ -59,6 +71,12 @@ public class BookManager {
                 foundBooks.add(book);
             }
         }
+        if (!foundBooks.isEmpty()) {
+            System.out.println("BooksFound");
+        }
+        else {
+            System.out.println("Book Not Found: " + publisher);
+        }
         return foundBooks;
     }
 
@@ -69,6 +87,12 @@ public class BookManager {
             if (book.getIsbn().equals(isbn)) {
                 foundBooks.add(book);
             }
+        }
+        if (!foundBooks.isEmpty()) {
+            System.out.println("BooksFound");
+        }
+        else {
+            System.out.println("Book Not Found: " + isbn);
         }
         return foundBooks;
     }
